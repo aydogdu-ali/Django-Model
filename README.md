@@ -8,9 +8,13 @@ ORM (Object Relational Mapping) database sorgulama işlemlerini python kodları 
 
 Django’da model oluşturma için öncelikle 
 from django.db import models  import edilir. #default gelen Models yapısı kullanılır.
+
 Class Student(models.Model): # Student Tablo ismi
+
 first_name= models.CharField(maz_length=30)
+
 last_name= models.CharField(maz_length=30)
+
 number = models.IntegerField()
 
 Model de işlem yaparsak python manage.py makemigrations komutu çalıştırılır ve arka planda tabloların yapılması için hazırlık süreci yapar.
@@ -43,9 +47,13 @@ Bu method bizim database tablomuzda herhangi bir değişiklik yapmaz.
  
 
 Meta classı bize birtakım kolaylıklar sağlar örneğin sıralama
+
  Class Meta:
+ 
 	Ordering = [“number”] dersek tabloları numara sırasına göre sıralar.
+	
 	verbose_name_plural = "Student_list" #tablonun adını değiştirir. Çoğul tarafını gösterir.
+	
         verbose_name = "Student_only" # tablonun tekil isimlerini gösterir.
 
 
@@ -55,8 +63,12 @@ Shell/terminalde ORM komutlarını yazmak için
 python manage.py shell  komutunu kullanırız.
 
 Sonra sorgu yapacağımız modeli import ederiz.
+
 from fspath.models import Student
 s1 = Student.objects.all() dersek tablodaki tüm öğrencileri çekeriz. Görmek için
+
 s1 yazıp enter tuşuna basarız.
+
 S2 = Student.objects.get(number=123) dersek belirttiğimiz numaralı öğrenci gelir.
+
 Shell’den çıkmak için exit() komutu kullanılır.
